@@ -71,7 +71,7 @@ public final class Number {
 
     @Override
     public String toString() {
-        return String.valueOf(this.value) + " " + this.dimension;
+        return this.value + " " + this.dimension;
     }
 
     @Override
