@@ -1,6 +1,6 @@
 package Number;
 
-import java.util.List;
+import java.util.Objects;
 
 public final class Number {
 
@@ -33,14 +33,14 @@ public final class Number {
 
     //Сложение
     public Number summing(final Number other) {
-        if (this.dimension.equals(other.dimension))
+        if (!this.dimension.equals(other.dimension))
             throw new IllegalArgumentException("Dimensions don't match");
         return new Number(this.value + other.value, this.dimension);
     }
 
     //Вычитание
     public Number substraction(final Number other) {
-        if (this.dimension.equals(other.dimension))
+        if (!this.dimension.equals(other.dimension))
             throw new IllegalArgumentException("Dimensions don't match");
         return new Number(this.value - other.value, this.dimension);
     }
@@ -57,17 +57,20 @@ public final class Number {
 
     //Умножение на число с той же размерностью
     public Number multiplication(final Number other) {
-        if (this.dimension.equals(other.dimension))
+        if (!this.dimension.equals(other.dimension))
             throw new IllegalArgumentException("Dimensions don't match");
         return new Number(this.value * other.value, this.dimension);
     }
 
     //Деление на число с той же размерностью
     public Number division(final Number other) {
-        if (this.dimension.equals(other.dimension))
+        if (!this.dimension.equals(other.dimension))
             throw new IllegalArgumentException("Dimensions don't match");
         return new Number(this.value / other.value, this.dimension);
     }
+
+    //Сравнение чисел с одинаково
+    public
 
     @Override
     public String toString() {
@@ -78,11 +81,9 @@ public final class Number {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Number number = (Number) o;
-
-        return Double.compare(number.value, value) != 0 &&
-                (dimension != null ? dimension.equals(number.dimension) : number.dimension == null);
+        return Math.abs(this.value - number.value) <= 1e-5 &&
+                this.dimension.equals(number.dimension);
     }
 
     @Override
