@@ -1,7 +1,5 @@
 package Number;
 
-import java.util.Objects;
-
 public final class Number {
 
     //Поля
@@ -69,8 +67,14 @@ public final class Number {
         return new Number(this.value / other.value, this.dimension);
     }
 
-    //Сравнение чисел с одинаково
-    public
+    //Сравнение чисел с одинаковой размерностью
+    public int comparsion(Number other) {
+        if (!this.dimension.equals(other.dimension))
+            throw new IllegalArgumentException("Dimensions don't match");
+        if (this.equals(other)) return 0;
+        else if (this.value < other.value) return -1;
+        else return 1;
+    }
 
     @Override
     public String toString() {

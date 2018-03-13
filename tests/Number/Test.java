@@ -58,7 +58,7 @@ class Test {
     }
 
     @org.junit.jupiter.api.Test
-    void doubleMultiplication(){
+    void doubleMultiplication() {
         assertEquals(num1, num1.doubleMultiplication(1.0));
         assertEquals(new Number(1141.2747, "кг"),
                 num2.doubleMultiplication(3.65));
@@ -79,18 +79,40 @@ class Test {
                 num2.doubleDivision(2.5));
         assertEquals(new Number(63.61579, "с"),
                 num3.doubleDivision(152.098));
-        
+        assertEquals(new Number("9.897689 м"),
+                num4.doubleDivision(100.0));
+        assertEquals(new Number("57498.235 кг"),
+                num5.doubleDivision(0.01));
+        assertEquals(new Number("19.6 с"),
+                num6.doubleDivision(5.0));
     }
 
     @org.junit.jupiter.api.Test
     void multiplication() {
+        assertEquals(new Number(2484.31994, "м"),
+                num1.multiplication(num4));
+        assertEquals(new Number(179784.33123, "кг"),
+                num2.multiplication(num5));
+        assertEquals(new Number(948231.9084, "с"),
+                num3.multiplication(num6));
     }
 
     @org.junit.jupiter.api.Test
     void division() {
+        assertEquals(new Number(0.00253, "м"),
+                num1.division(num4));
+        assertEquals(new Number(0.5438, "кг"),
+                num2.division(num5));
+        assertEquals(new Number(98.73301, "с"),
+                num3.division(num6));
     }
 
     @org.junit.jupiter.api.Test
     void comparsion() {
+        assertEquals(0,
+                num1.comparsion(new Number(2.51, "м")));
+        assertEquals(-1, num1.comparsion(num4));
+        assertEquals(-1, num2.comparsion(num5));
+        assertEquals(1, num3.comparsion(num6));
     }
 }
