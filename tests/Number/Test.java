@@ -32,87 +32,87 @@ class Test {
     }
 
     @org.junit.jupiter.api.Test
-    void summing() {
+    void add() {
         assertEquals(new Number(992.2789, "м"),
-                num1.summing(num4));
+                num1.add(num4));
         assertEquals(new Number(887.66035, "кг"),
-                num2.summing(num5));
+                num2.add(num5));
         assertEquals(new Number(9773.8358, "с"),
-                num3.summing(num6));
+                num3.add(num6));
     }
 
     @org.junit.jupiter.api.Test
-    void substraction() {
+    void subtract() {
         assertEquals(new Number(-987.2589, "м"),
-                num1.substraction(num4));
+                num1.subtract(num4));
         assertEquals(new Number(-262.30435, "кг"),
-                num2.substraction(num5));
+                num2.subtract(num5));
         assertEquals(new Number(9577.8358, "с"),
-                num3.substraction(num6));
+                num3.subtract(num6));
         assertEquals(new Number(987.2589, "м"),
-                num4.substraction(num1));
+                num4.subtract(num1));
         assertEquals(new Number(262.30435, "кг"),
-                num5.substraction(num2));
+                num5.subtract(num2));
         assertEquals(new Number(-9577.8358, "с"),
-                num6.substraction(num3));
+                num6.subtract(num3));
     }
 
     @org.junit.jupiter.api.Test
-    void doubleMultiplication() {
-        assertEquals(num1, num1.doubleMultiplication(1.0));
+    void doubleMultiply() {
+        assertEquals(num1, num1.multiply(1.0));
         assertEquals(new Number(1141.2747, "кг"),
-                num2.doubleMultiplication(3.65));
+                num2.multiply(3.65));
         assertEquals(new Number(14862.08378, "с"),
-                num3.doubleMultiplication(1.536));
+                num3.multiply(1.536));
         assertEquals(new Number(22141.1303, "м"),
-                num4.doubleMultiplication(22.37));
+                num4.multiply(22.37));
         assertEquals(new Number(5205.31521, "кг"),
-                num5.doubleMultiplication(9.053));
+                num5.multiply(9.053));
         assertEquals(new Number(1220.9722, "с"),
-                num6.doubleMultiplication(12.4589));
+                num6.multiply(12.4589));
     }
 
     @org.junit.jupiter.api.Test
-    void doubleDivision() {
-        assertEquals(num1, num1.doubleDivision(1.0));
+    void doubleDivide() {
+        assertEquals(num1, num1.divide(1.0));
         assertEquals(new Number(125.0712, "кг"),
-                num2.doubleDivision(2.5));
+                num2.divide(2.5));
         assertEquals(new Number(63.61579, "с"),
-                num3.doubleDivision(152.098));
+                num3.divide(152.098));
         assertEquals(new Number("9.897689 м"),
-                num4.doubleDivision(100.0));
+                num4.divide(100.0));
         assertEquals(new Number("57498.235 кг"),
-                num5.doubleDivision(0.01));
+                num5.divide(0.01));
         assertEquals(new Number("19.6 с"),
-                num6.doubleDivision(5.0));
+                num6.divide(5.0));
     }
 
     @org.junit.jupiter.api.Test
-    void multiplication() {
+    void multiply() {
         assertEquals(new Number(2484.31994, "м"),
-                num1.multiplication(num4));
+                num1.multiply(num4));
         assertEquals(new Number(179784.33123, "кг"),
-                num2.multiplication(num5));
+                num2.multiply(num5));
         assertEquals(new Number(948231.9084, "с"),
-                num3.multiplication(num6));
+                num3.multiply(num6));
     }
 
     @org.junit.jupiter.api.Test
-    void division() {
+    void divide() {
         assertEquals(new Number(0.00253, "м"),
-                num1.division(num4));
+                num1.divide(num4));
         assertEquals(new Number(0.5438, "кг"),
-                num2.division(num5));
+                num2.divide(num5));
         assertEquals(new Number(98.73301, "с"),
-                num3.division(num6));
+                num3.divide(num6));
     }
 
     @org.junit.jupiter.api.Test
-    void comparsion() {
+    void compareTo() {
         assertEquals(0,
-                num1.comparsion(new Number(2.51, "м")));
-        assertEquals(-1, num1.comparsion(num4));
-        assertEquals(-1, num2.comparsion(num5));
-        assertEquals(1, num3.comparsion(num6));
+                num1.compareTo(new Number(2.51, "м")));
+        assertEquals(-1, num1.compareTo(num4));
+        assertEquals(-1, num2.compareTo(num5));
+        assertEquals(1, num3.compareTo(num6));
     }
 }

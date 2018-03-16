@@ -1,11 +1,13 @@
 package Number;
 
-public final class Number {
+public final class Number implements Comparable<Number> {
 
     //Поля
     private final double value;
 
     private final String dimension;
+
+    private final double delta = 1e-5;
 
     //Конструктор
     public Number(final double value, final String dimension) {
@@ -30,45 +32,45 @@ public final class Number {
     }
 
     //Сложение
-    public Number summing(final Number other) {
+    public Number add(final Number other) {
         if (!this.dimension.equals(other.dimension))
             throw new IllegalArgumentException("Dimensions don't match");
         return new Number(this.value + other.value, this.dimension);
     }
 
     //Вычитание
-    public Number substraction(final Number other) {
+    public Number subtract(final Number other) {
         if (!this.dimension.equals(other.dimension))
             throw new IllegalArgumentException("Dimensions don't match");
         return new Number(this.value - other.value, this.dimension);
     }
 
     //Умножение на вещественное число
-    public Number doubleMultiplication(double factor) {
+    public Number multiply(double factor) {
         return new Number(this.value * factor, this.dimension);
     }
 
     //Деление на вещественное число
-    public Number doubleDivision(double divisor) {
+    public Number divide(double divisor) {
         return new Number(this.value / divisor, this.dimension);
     }
 
     //Умножение на число с той же размерностью
-    public Number multiplication(final Number other) {
+    public Number multiply(final Number other) {
         if (!this.dimension.equals(other.dimension))
             throw new IllegalArgumentException("Dimensions don't match");
         return new Number(this.value * other.value, this.dimension);
     }
 
     //Деление на число с той же размерностью
-    public Number division(final Number other) {
+    public Number divide(final Number other) {
         if (!this.dimension.equals(other.dimension))
             throw new IllegalArgumentException("Dimensions don't match");
         return new Number(this.value / other.value, this.dimension);
     }
 
     //Сравнение чисел с одинаковой размерностью
-    public int comparsion(Number other) {
+    public int compareTo(Number other) {
         if (!this.dimension.equals(other.dimension))
             throw new IllegalArgumentException("Dimensions don't match");
         if (this.equals(other)) return 0;
@@ -86,7 +88,7 @@ public final class Number {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Number number = (Number) o;
-        return Math.abs(this.value - number.value) <= 1e-5 &&
+        return Math.abs(this.value - number.value) <= delta &&
                 this.dimension.equals(number.dimension);
     }
 
